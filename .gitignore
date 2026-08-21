@@ -1,0 +1,33 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Python caching and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables (Crucial for security)
+.env
+.env.*
+!.env.example
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Database (if using local SQLite for development)
+*.sqlite3
+*.db
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+.DS_Store
