@@ -22,3 +22,10 @@ class UserResponse(BaseModel):
     email: EmailStr
     is_online: bool
     created_at: datetime.datetime
+
+
+class UserPublic(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    name: str

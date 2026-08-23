@@ -1,4 +1,4 @@
-from app.schemas.user import UserCreate, UserLogin, UserResponse
+from app.schemas.user import UserCreate, UserLogin, UserResponse, UserPublic
 from app.schemas.conversation import (
     ConversationCreate,
     ConversationMemberResponse,
@@ -17,6 +17,7 @@ __all__ = [
     "UserCreate",
     "UserLogin",
     "UserResponse",
+    "UserPublic",
     "ConversationCreate",
     "ConversationMemberResponse",
     "ConversationResponse",
