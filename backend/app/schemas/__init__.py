@@ -5,6 +5,13 @@ from app.schemas.conversation import (
     ConversationResponse,
 )
 from app.schemas.message import MessageCreate, MessageResponse
+from app.schemas.auth import (
+    LoginRequest,
+    TokenResponse,
+    ForgetPasswordRequest,
+    ResetPasswordRequest,
+    MessageResponse,
+)
 
 __all__ = [
     "UserCreate",
@@ -14,5 +21,10 @@ __all__ = [
     "ConversationMemberResponse",
     "ConversationResponse",
     "MessageCreate",
+    "MessageResponse",
+    "LoginRequest",
+    "TokenResponse",
+    "ForgetPasswordRequest",
+    "ResetPasswordRequest",
     "MessageResponse",
 ]

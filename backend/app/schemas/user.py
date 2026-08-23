@@ -20,4 +20,5 @@ class UserResponse(BaseModel):
     id: int
     name: str
     email: EmailStr
+    is_online: bool
     created_at: datetime.datetime
