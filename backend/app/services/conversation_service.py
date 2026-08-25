@@ -1,7 +1,7 @@
 from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 
-from app.models import Conversation, ConversationMember, User
+from app.models import Conversation, ConversationMember
 
 
 def get_conversation_by_id(
@@ -95,3 +95,19 @@ def get_user_conversations(db: Session, user_id: int) -> list[Conversation]:
     )
 
     return list(db.scalars(statement).unique().all())
+
+
+def get_conversation_for_user(
+    db: Session, user_id: int, conversation_id: int
+) -> Conversation | None:
+    statement = (
+        select(Conversation)
+        .options(
+            selectinload(Conversation.members).selectinload(ConversationMember.user)
+        )
+        .where(
+            Conversation.id == conversation_id, ConversationMember.user_id == user_id
+        )
+    )
+
+    return db.scalar(statement)

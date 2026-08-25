@@ -1,6 +1,7 @@
 import datetime
 
 from pydantic import BaseModel, Field, ConfigDict
+from app.schemas import UserPublic
 
 
 class MessageCreate(BaseModel):
@@ -16,3 +17,4 @@ class MessageResponse(BaseModel):
     content: str
     created_at: datetime.datetime
     read_at: datetime.datetime | None
+    user: UserPublic
