@@ -16,8 +16,6 @@ def get_current_user(
 ) -> User:
     token = credentials.credentials
 
-    print(f"DEBUG: Received token: '{token}'")
-
     user_id = decode_access_token(token)
 
     if user_id is None:

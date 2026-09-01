@@ -22,7 +22,8 @@ export const useAuthStore = create(
               password,
             },
           });
-          set({ accessToken: data.accessToken });
+
+          set({ accessToken: data.access_token });
           await get().fetchUser();
           return true;
         } catch (error) {

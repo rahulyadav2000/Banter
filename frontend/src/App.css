@@ -75,3 +75,35 @@
   transform: translateY(0);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.user-search-results {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+
+  background: white;
+
+  border: 1px solid #ddd;
+}
+
+.user-search-results button {
+  padding: 12px;
+
+  text-align: left;
+
+  border: 0;
+  background: grey;
+  color: white;
+}
+
+.user-search {
+  padding: 12px;
+
+  position: relative;
+}
+
+.user-search input {
+  width: 100%;
+
+  padding: 10px;
+}
