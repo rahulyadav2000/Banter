@@ -76,6 +76,8 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Sidebar */
+
 .user-search-results {
   width: 500px;
   display: flex;
@@ -104,6 +106,44 @@
 
 .user-search input {
   width: 100%;
-
+  box-sizing: border-box;
   padding: 10px;
+  border-radius: 5px;
+}
+
+.conversation-sidebar {
+  margin-top: 70px;
+  width: 300px;
+  height: 800px;
+  background: var(--accent);
+
+  border-right: 1px solid #ddd;
+  border-radius: 5px;
+
+  overflow-y: auto;
+}
+
+.conversation-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.conversation {
+  padding: 16px;
+
+  text-align: left;
+
+  border: 0;
+  border-bottom: 1px solid #eee;
+  border-radius: 5px;
+  color: var(--bg);
+  background: var(--accent);
+}
+
+.conversation-active {
+  padding: 16px;
+  background: var(--text);
+  border-radius: 5px;
+  color: var(--bg);
+  text-align: left;
 }

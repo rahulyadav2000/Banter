@@ -45,7 +45,7 @@ export const useAuthStore = create(
           const data = await authRequests("/auth/me", {
             token,
           });
-          set({ data });
+          set({ user: data });
         } catch (error) {
           set({ user: null, accessToken: null, error: error.message });
         } finally {
