@@ -109,8 +109,8 @@ def send_messages(
         conversation_id=conversation_id,
         current_user_id=current_user.id,
     )
-
-    return {"message": message.content}
+    return message
+    #return {"message": message.content}
 
 
 @router.get("/{conversation_id}/messages", response_model=list[MessageResponse])
@@ -119,7 +119,7 @@ def list_messages(
     conversation_id: int,
     current_user: Annotated[User, Depends(get_current_user)],
     limit: int = Query(default=50, ge=1, le=80),
-    before_id: int = Query(default=None, ge=0),
+    before_id: int = Query(default=None, ge=1),
 ):
     conversation = get_conversation_for_user(
         db=db, user_id=current_user.id, conversation_id=conversation_id
@@ -133,5 +133,5 @@ def list_messages(
     messages = get_messages(
         db=db, conversation_id=conversation_id, before_id=before_id, limit=limit
     )
-
-    return [{"message": message.content} for message in messages]
+    return messages
+    #return [{"message": message.content} for message in messages]

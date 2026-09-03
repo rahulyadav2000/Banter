@@ -34,7 +34,8 @@ function ConversationSidebar() {
               }
               onClick={() => selectConversation(convo)}
             >
-              {otherUser.name || "Unknown User"}
+              <div className="conversation-avatar">{otherUser.name[0]}</div>
+              <span>{otherUser.name || "Unknown User"}</span>
             </button>
           );
         })}

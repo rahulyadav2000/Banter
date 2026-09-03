@@ -8,7 +8,7 @@ from app.database import get_db
 from app.models import User
 from app.schemas import (
     LoginRequest,
-    MessageResponse,
+    AuthMessageResponse,
     TokenResponse,
     ForgetPasswordRequest,
     ResetPasswordRequest,
@@ -63,6 +63,6 @@ def get_me(user: Annotated[User, Depends(get_current_user)]):
     return user
 
 
-@router.post("/logout", response_model=MessageResponse)
-def logout():
-    return MessageResponse(message="Successfully logged out")
+@router.post("/logout", response_model=AuthMessageResponse)
+def logout(user: Annotated[User, Depends(get_current_user)]):
+    return AuthMessageResponse(message="Successfully logged out")

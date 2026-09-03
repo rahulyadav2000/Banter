@@ -10,7 +10,7 @@ from app.schemas.auth import (
     TokenResponse,
     ForgetPasswordRequest,
     ResetPasswordRequest,
-    MessageResponse,
+    AuthMessageResponse,
 )
 
 __all__ = [
@@ -22,7 +22,7 @@ __all__ = [
     "ConversationMemberResponse",
     "ConversationResponse",
     "MessageCreate",
-    "MessageResponse",
+    "AuthMessageResponse",
     "LoginRequest",
     "TokenResponse",
     "ForgetPasswordRequest",

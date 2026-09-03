@@ -54,7 +54,20 @@ export const useAuthStore = create(
       },
 
       logout: async () => {
-        set({ accessToken: null, user: null, error: null });
+        const token = get().accessToken;
+
+        try {
+          if (token) {
+            await authRequests("/auth/logout", {
+              method: "POST",
+              token,
+            });
+          }
+        } catch (error) {
+          set({ error: error.message });
+        } finally {
+          set({ accessToken: null, user: null, error: null });
+        }
       },
 
       clearError: () => {
