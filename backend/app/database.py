@@ -1,4 +1,4 @@
-from pathlib import Path
+from contextlib import contextmanager
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 from app.config import settings
@@ -16,7 +16,7 @@ session = sessionmaker(bind=engine, autoflush=False, expire_on_commit=False)
 class Base(DeclarativeBase):
     pass
 
-
+@contextmanager
 def get_db():
     db = session()
 
