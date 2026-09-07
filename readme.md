@@ -1,6 +1,6 @@
 # Banter - A Chat Application
 
-A real time chat application built using React, Zustand, FastAPI, and PostgreSQL.
+A real time chat application built using React, Zustand, FastAPI, WebSockets, and PostgreSQL.
 
 The goal of the project is to implement the core architecture of a real-time messaging system. The application will allow users to create accounts, log in, and send and receive messages in a chat room.
 
@@ -15,6 +15,7 @@ The goal of the project is to implement the core architecture of a real-time mes
 | Native Fetch API | JWT Authentication      |
 | React Router     | Argon2 Password Hashing |
 |                  | Pydantic                |
+|                  | WebSockets              |
 
 ### Features
 
@@ -26,6 +27,7 @@ The goal of the project is to implement the core architecture of a real-time mes
 - List user conversations
 - Fetch messages from conversations
 - Zustand state management for authentication and chat state
+- WebSockets for real-time messaging
 
 ### Run locally
 
@@ -36,6 +38,7 @@ The goal of the project is to implement the core architecture of a real-time mes
 3. JWT_ALGORITHM=HS256
 4. ACCESS_TOKEN_EXPIRE_MINUTES=30
 5. VITE_API_URL=http://127.0.0.1:8000
+6. VITE_WS_URL=ws://127.0.0.1:8000/ws
 
 #### Backend
 
