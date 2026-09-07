@@ -9,7 +9,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://banterchat.vercel.app"],
+    allow_origins=["https://banterchat.vercel.app", "http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -24,3 +24,13 @@ app.include_router(websocket_router)
 @app.get("/")
 def root():
     return {"message": "Welcome to Banter"}
+
+
+@app.get("/debug-cors")
+def debug_cors():
+    return {
+        "allowed_origins": [
+            "https://banterchat.vercel.app",
+            "http://localhost:5173",
+        ]
+    }
