@@ -14,7 +14,7 @@ function ConversationSidebar() {
   const getOtherUser = (conversation) => {
     return conversation.members
       .map((member) => member.user)
-      .find((user) => user.id !== currentUser.id);
+      .find((user) => user.id !== currentUser?.id);
   };
 
   return (

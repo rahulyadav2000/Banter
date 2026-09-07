@@ -16,10 +16,19 @@ session = sessionmaker(bind=engine, autoflush=False, expire_on_commit=False)
 class Base(DeclarativeBase):
     pass
 
-@contextmanager
+
 def get_db():
     db = session()
 
+    try:
+        yield db
+    finally:
+        db.close()
+
+# for web sockets
+@contextmanager
+def db_session():
+    db = session()
     try:
         yield db
     finally:

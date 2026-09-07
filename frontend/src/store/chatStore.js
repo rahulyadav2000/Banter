@@ -169,6 +169,28 @@ export const useChatStore = create((set, get) => ({
     }
   },
 
+  receiveMessage: (message) => {
+    set((state) => {
+      const conversationId = message.conversation_id;
+      const existingMessages = state.messages[conversationId] || [];
+
+      const alreadyExistsMessages = existingMessages.some(
+        (exist) => exist.id === message.id,
+      );
+
+      if (alreadyExistsMessages) {
+        return {};
+      }
+
+      return {
+        messages: {
+          ...state.messages,
+          [conversationId]: [...existingMessages, message],
+        },
+      };
+    });
+  },
+
   clearMessages: () => {
     set({
       conversations: [],

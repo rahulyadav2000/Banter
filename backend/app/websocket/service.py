@@ -5,7 +5,7 @@ from app.models import User
 from app.schemas import MessageResponse, MessageCreate
 from app.services.conversation_service import get_conversation_for_user
 from app.services.message_service import create_message
-from app.database import get_db
+from app.database import db_session
 
 
 class WebSocketMessageError(Exception):
@@ -23,7 +23,7 @@ def authenticate_websocket(token: str) -> int | None:
     if user_id is None:
         return None
 
-    with get_db() as db:
+    with db_session() as db:
         user = db.get(User, user_id)
         if user is None:
             return None
@@ -37,7 +37,7 @@ def save_websocket_message(
     if not clean_content:
         raise WebSocketMessageError("Message content is required")
 
-    with get_db() as db:
+    with db_session() as db:
         conversation = get_conversation_for_user(
             db=db, conversation_id=conversation_id, user_id=user_id
         )

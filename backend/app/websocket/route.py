@@ -21,7 +21,7 @@ async def websocket_endpoint(
         await websocket.close(code=1008, reason="Authentication required")
         return
 
-    user_id = run_in_threadpool(authenticate_websocket, token)
+    user_id = await run_in_threadpool(authenticate_websocket, token)
 
     if user_id is None:
         await websocket.close(code=1008, reason="Invalid token")
