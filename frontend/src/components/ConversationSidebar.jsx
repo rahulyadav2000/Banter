@@ -1,7 +1,7 @@
 import { useAuthStore } from "../store/authStore";
 import { useChatStore } from "../store/chatStore";
 
-import UserSearchComp from "./userSearchComp";
+import UserSearchComp from "./UserSearchComp";
 
 function ConversationSidebar() {
   const currentUser = useAuthStore((state) => state.user);
